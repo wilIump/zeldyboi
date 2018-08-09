@@ -1,0 +1,12 @@
+{ "columns":18,
+ "image":"..\/zelda_sprite_sheet_overworld.png",
+ "imageheight":118,
+ "imagewidth":305,
+ "margin":0,
+ "name":"zelda_sprite_sheet_overworld",
+ "spacing":1,
+ "tilecount":126,
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset"
+}

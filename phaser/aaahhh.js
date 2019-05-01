@@ -156,15 +156,16 @@ function sword_hide(){
     sword.visible = false;
 }
 function spawn_enemy(){
-    /*
+    
     for(var i = 0; i < 4; i += 1){
         orange_boi_spawn[i] = map2.searchTileIndex(1, i);
     }
-    */
+    /*
     enemy1 = game.add.sprite(orange_boi_spawn1.x * 16, orange_boi_spawn1.y * 16, 'enemy', 1);
     enemy2 = game.add.sprite(orange_boi_spawn2.x * 16, orange_boi_spawn2.y * 16, 'enemy', 1);
     enemy3 = game.add.sprite(orange_boi_spawn3.x * 16, orange_boi_spawn3.y * 16, 'enemy', 1);
     enemy4 = game.add.sprite(orange_boi_spawn4.x * 16, orange_boi_spawn4.y * 16, 'enemy', 1);
+    */
 }
 
 function orgboi_walk(){

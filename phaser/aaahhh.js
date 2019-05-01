@@ -83,10 +83,10 @@ function create() {
 function update() {
     game.physics.arcade.collide(player, layer);
     game.physics.arcade.collide(sword, layer, sword_hide);
-    game.physics.arcade.overlap(sword, enemy1, sword_hide);
-    game.physics.arcade.overlap(sword, enemy2, sword_hide);
-    game.physics.arcade.overlap(sword, enemy3, sword_hide);
-    game.physics.arcade.overlap(sword, enemy4, sword_hide);
+    game.physics.arcade.collide(sword, enemy1, sword_hide);
+    game.physics.arcade.collide(sword, enemy2, sword_hide);
+    game.physics.arcade.collide(sword, enemy3, sword_hide);
+    game.physics.arcade.collide(sword, enemy4, sword_hide);
     player.body.velocity.set(0);
 
     attack();

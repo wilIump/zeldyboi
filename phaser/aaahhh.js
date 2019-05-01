@@ -87,10 +87,6 @@ function update() {
     game.physics.arcade.overlap(sword, enemy2, sword_hide);
     game.physics.arcade.overlap(sword, enemy3, sword_hide);
     game.physics.arcade.overlap(sword, enemy4, sword_hide);
-    game.physics.arcade.overlap(sword, enemy1, sword_hide(enemy1));
-    game.physics.arcade.overlap(sword, enemy2, sword_hide(enemy2));
-    game.physics.arcade.overlap(sword, enemy3, sword_hide(enemy3));
-    game.physics.arcade.overlap(sword, enemy4, sword_hide(enemy4));
     player.body.velocity.set(0);
 
     attack();
@@ -158,9 +154,6 @@ function attack() {
 
 function sword_hide(){
     sword.visible = false;
-}
-function enemy_hide(enemy){
-    enemy.visible = false;
 }
 function spawn_enemy(){
     /*

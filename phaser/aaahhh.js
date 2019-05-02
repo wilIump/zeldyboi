@@ -133,25 +133,25 @@ function attack() {
             sword.x = player.x; sword.y = player.y;
             sword.visible = true;
             sword.body.rotation = 0;
-            sword.body.velocity.y = 0;
+            sword.body.velocity.y = -300;
         } else if (direction == 1) {
             player.play('down_attack')
             sword.x = player.x + 8; sword.y = player.y + 8;
             sword.visible = true;
             sword.body.rotation = 180;
-            sword.body.velocity.y = 0;
+            sword.body.velocity.y = 300;
         } else if (direction == 2) {
             player.play('left_attack')
             sword.x = player.x; sword.y = player.y + 10;
             sword.visible = true;
             sword.body.rotation = -90;
-            sword.body.velocity.x = 0;
+            sword.body.velocity.x = -300;
         } else {
             player.play('right_attack')
             sword.x = player.x + 16; sword.y = player.y + 8;
             sword.visible = true;
             sword.body.rotation = 90;
-            sword.body.velocity.x = 0;
+            sword.body.velocity.x = 300;
         }
     }
 }

@@ -70,10 +70,10 @@ function create() {
     up_attack.isFinished = true; down_attack.isFinished = true; left_attack.isFinished = true; right_attack.isFinished = true;
 
     game.physics.enable(player, Phaser.Physics.ARCADE);
-    game.physics.enable(enemy1, Phaser.Physics.ARCADE);
-    game.physics.enable(enemy2, Phaser.Physics.ARCADE);
-    game.physics.enable(enemy3, Phaser.Physics.ARCADE);
-    game.physics.enable(enemy4, Phaser.Physics.ARCADE);
+    game.physics.enable(enemies, Phaser.Physics.ARCADE);
+    //game.physics.enable(enemy2, Phaser.Physics.ARCADE);
+    //game.physics.enable(enemy3, Phaser.Physics.ARCADE);
+    //game.physics.enable(enemy4, Phaser.Physics.ARCADE);
     player.body.setSize(14, 14);
     game.physics.enable(sword, Phaser.Physics.ARCADE);
     game.camera.follow(player);
@@ -174,7 +174,7 @@ function sword_hide(){
 function spawn_enemy(){
     orange_boi_spawn = [map2.searchTileIndex(1), map2.searchTileIndex(1, 1), map2.searchTileIndex(1, 2), map2.searchTileIndex(1, 3)]
     for(var i = 0; i < 4; i += 1){
-        enemies[i] = orange_boi_spawn[i]
+        enemies[i] = game.add.sprite(orange_boi_spawn[i].x * 16, orange_boi_spawn[i].y * 16, 'enemy', 1);
     }
     /*
     enemy1 = game.add.sprite(orange_boi_spawn1.x * 16, orange_boi_spawn1.y * 16, 'enemy', 1);

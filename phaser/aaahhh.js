@@ -101,7 +101,9 @@ function render() {
 
 function playerControl() {
     attack(); // checks to see if the player has pressed he attack buttton and if so performs an attack
-    walk(); // checks to see if the player has pressed a button to move and if so moves accordingly
+    if (!sword.visible) {
+        walk();
+    }
 }
 
 function walk() {

@@ -28,7 +28,8 @@ var player;
 var enemy1, enemy2, enemy3, enemy4;
 var sword;
 var linkSpawn;
-//var orange_boi_spawn = [];
+var orange_boi_spawn = [];
+var enemies = [];
 var orange_boi_spawn1; var orange_boi_spawn2; var orange_boi_spawn3; var orange_boi_spawn4;
 var direction;
 var up, down, left, right;
@@ -48,13 +49,13 @@ function create() {
     map.setCollisionBetween(9, 125);
     //map.setTileIndexCallback([0,7], sword_hide, sword);
     //map.setTileIndexCallback([9,125], sword_hide, sword);
-    linkSpawn = map2.searchTileIndex(10); orange_boi_spawn1 = map2.searchTileIndex(1); orange_boi_spawn2 = map2.searchTileIndex(1, 1); orange_boi_spawn3 = map2.searchTileIndex(1, 2); orange_boi_spawn4 = map2.searchTileIndex(1, 3);
+    linkSpawn = map2.searchTileIndex(10);
     player = game.add.sprite(linkSpawn.x * 16, linkSpawn.y * 16, 'player', 1);
-    //spawn_enemy();
-    enemy1 = game.add.sprite(orange_boi_spawn1.x * 16, orange_boi_spawn1.y * 16, 'enemy', 0);
-    enemy2 = game.add.sprite(orange_boi_spawn2.x * 16, orange_boi_spawn2.y * 16, 'enemy', 0);
-    enemy3 = game.add.sprite(orange_boi_spawn3.x * 16, orange_boi_spawn3.y * 16, 'enemy', 0);
-    enemy4 = game.add.sprite(orange_boi_spawn4.x * 16, orange_boi_spawn4.y * 16, 'enemy', 0);
+    spawn_enemy();
+    //enemy1 = game.add.sprite(orange_boi_spawn1.x * 16, orange_boi_spawn1.y * 16, 'enemy', 0);
+    //enemy2 = game.add.sprite(orange_boi_spawn2.x * 16, orange_boi_spawn2.y * 16, 'enemy', 0);
+    //enemy3 = game.add.sprite(orange_boi_spawn3.x * 16, orange_boi_spawn3.y * 16, 'enemy', 0);
+    //enemy4 = game.add.sprite(orange_boi_spawn4.x * 16, orange_boi_spawn4.y * 16, 'enemy', 0);
     sword = game.add.sprite(linkSpawn.x * 15, linkSpawn.y * 16, 'sword');
     sword.visible = false;
     // doki doki oyo class
@@ -100,26 +101,35 @@ function render() {
 }
 
 function playerControl() {
-    attack(); // checks to see if the player has pressed he attack buttton and if so performs an attack
-    if (!sword.visible) {
-        walk();
+    if (cursors.left.isDown) {
+        walk(2);
+    } else if (cursors.right.isDown) {
+        walk(3);
+    } else if (cursors.up.isDown) {
+        walk(0);
+    } else if (cursors.down.isDown) {
+        walk(1);
+    } else {
+        attack(); // checks to see if the player has pressed he attack buttton and if so performs an attack
     }
+    
+    
 }
 
-function walk() {
-    if (cursors.left.isDown) {
+function walk(input) {
+    if (input == 2) {
         player.body.velocity.x = -100;
         player.play('left');
         direction = 2;
-    } else if (cursors.right.isDown) {
+    } else if (input == 3) {
         player.body.velocity.x = 100;
         player.play('right');
         direction = 3;
-    } else if (cursors.up.isDown) {
+    } else if (input == 0) {
         player.body.velocity.y = -100;
         player.play('up');
         direction = 0;
-    } else if (cursors.down.isDown) {
+    } else if (input == 1) {
         player.body.velocity.y = 100;
         player.play('down');
         direction = 1;
@@ -162,9 +172,9 @@ function sword_hide(){
     sword.visible = false;
 }
 function spawn_enemy(){
-    
+    orange_boi_spawn = [map2.searchTileIndex(1), map2.searchTileIndex(1, 1), map2.searchTileIndex(1, 2), map2.searchTileIndex(1, 3)]
     for(var i = 0; i < 4; i += 1){
-        orange_boi_spawn[i] = map2.searchTileIndex(1, i);
+        enemies[i] = orange_boi_spawn[i]
     }
     /*
     enemy1 = game.add.sprite(orange_boi_spawn1.x * 16, orange_boi_spawn1.y * 16, 'enemy', 1);

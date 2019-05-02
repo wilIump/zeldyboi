@@ -70,7 +70,10 @@ function create() {
     up_attack.isFinished = true; down_attack.isFinished = true; left_attack.isFinished = true; right_attack.isFinished = true;
 
     game.physics.enable(player, Phaser.Physics.ARCADE);
-    game.physics.enable(enemies, Phaser.Physics.ARCADE);
+    for(var i = 0; i < 4; i += 1){
+        game.physics.arcade.enable(sword, enemies[i], sword_hide);
+    }
+    //game.physics.enable(enemies, Phaser.Physics.ARCADE);
     //game.physics.enable(enemy2, Phaser.Physics.ARCADE);
     //game.physics.enable(enemy3, Phaser.Physics.ARCADE);
     //game.physics.enable(enemy4, Phaser.Physics.ARCADE);
@@ -84,7 +87,10 @@ function create() {
 function update() {
     game.physics.arcade.collide(player, layer);
     game.physics.arcade.collide(sword, layer, sword_hide);
-    game.physics.arcade.collide(sword, enemies, sword_hide);
+    for(var i = 0; i < 4; i += 1){
+        game.physics.arcade.collide(sword, enemies[i], sword_hide);
+    }
+    //game.physics.arcade.collide(sword, enemies[i], sword_hide);
     //game.physics.arcade.collide(sword, enemy2, sword_hide);
     //game.physics.arcade.collide(sword, enemy3, sword_hide);
     //game.physics.arcade.collide(sword, enemy4, sword_hide);

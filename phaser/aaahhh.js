@@ -89,8 +89,7 @@ function update() {
     game.physics.arcade.collide(sword, enemy4, sword_hide);
     player.body.velocity.set(0);
 
-    attack();
-    walk();
+    playerControl();
     
 
 }
@@ -98,6 +97,11 @@ function update() {
 function render() {
     //game.debug.cameraInfo(game.camera, 16, 16);
     //game.debug.spriteInfo(player, 32, 32);
+}
+
+function playerControl() {
+    attack(); // checks to see if the player has pressed he attack buttton and if so performs an attack
+    walk(); // checks to see if the player has pressed a button to move and if so moves accordingly
 }
 
 function walk() {
@@ -118,7 +122,7 @@ function walk() {
         player.play('down');
         direction = 1;
     } else if (up_attack.isFinished && down_attack.isFinished && left_attack.isFinished && right_attack.isFinished) {
-        player.animations.stop();
+        //player.animations.stop();
     }
 }
 

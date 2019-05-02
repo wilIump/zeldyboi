@@ -116,6 +116,7 @@ function playerControl() {
     } else if (cursors.down.isDown) {
         walk(1);
     } else {
+        walk(4);
         attack(); // checks to see if the player has pressed he attack buttton and if so performs an attack
     }
     
@@ -139,7 +140,7 @@ function walk(input) {
         player.body.velocity.y = 100;
         player.play('down');
         direction = 1;
-    } else if (up_attack.isFinished && down_attack.isFinished && left_attack.isFinished && right_attack.isFinished) {
+    } else if (input == 4 && up_attack.isFinished && down_attack.isFinished && left_attack.isFinished && right_attack.isFinished) {
         player.animations.stop();
     }
 }

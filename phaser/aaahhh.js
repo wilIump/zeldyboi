@@ -122,7 +122,7 @@ function walk() {
         player.play('down');
         direction = 1;
     } else if (up_attack.isFinished && down_attack.isFinished && left_attack.isFinished && right_attack.isFinished) {
-        //player.animations.stop();
+        player.animations.stop();
     }
 }
 

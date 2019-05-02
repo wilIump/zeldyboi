@@ -28,7 +28,7 @@ var player;
 var enemy1, enemy2, enemy3, enemy4;
 var sword;
 var linkSpawn;
-var orange_boi_spawn = [];
+var orangeEnemySpawn = [];
 var enemies = [];
 var orange_boi_spawn1; var orange_boi_spawn2; var orange_boi_spawn3; var orange_boi_spawn4;
 var direction;
@@ -176,13 +176,15 @@ function sword_hide(){
     sword.visible = false;
 }
 function spawn_enemy(){
-    orange_boi_spawn = [map2.searchTileIndex(1), map2.searchTileIndex(1, 1), map2.searchTileIndex(1, 2), map2.searchTileIndex(1, 3)]
+    orangeEnemySpawn = [map2.searchTileIndex(1), map2.searchTileIndex(1, 1), map2.searchTileIndex(1, 2), map2.searchTileIndex(1, 3)]
     for(var i = 0; i < 4; i += 1){
-        enemies[i] = game.add.sprite(orange_boi_spawn[i].x * 16, orange_boi_spawn[i].y * 16, 'enemy', 1);
+        enemies[i] = game.add.sprite(orangeEnemySpawn[i].x * 16, orangeEnemySpawn[i].y * 16, 'enemy', 1);
     }
+    /*
     for(var i = 0; i < 4; i += 1){
         game.physics.arcade.enable(sword, enemies[i], sword_hide);
     }
+    */
     /*
     enemy1 = game.add.sprite(orange_boi_spawn1.x * 16, orange_boi_spawn1.y * 16, 'enemy', 1);
     enemy2 = game.add.sprite(orange_boi_spawn2.x * 16, orange_boi_spawn2.y * 16, 'enemy', 1);

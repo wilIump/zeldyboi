@@ -73,7 +73,7 @@ function create() {
     for(var i = 0; i < 4; i += 1){
         game.physics.arcade.enable(sword, enemies[i], sword_hide);
     }
-    //game.physics.enable(enemies, Phaser.Physics.ARCADE);
+    game.physics.enable(enemies, Phaser.Physics.ARCADE);
     //game.physics.enable(enemy2, Phaser.Physics.ARCADE);
     //game.physics.enable(enemy3, Phaser.Physics.ARCADE);
     //game.physics.enable(enemy4, Phaser.Physics.ARCADE);
